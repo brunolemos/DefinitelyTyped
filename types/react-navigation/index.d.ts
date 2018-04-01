@@ -31,6 +31,7 @@ import * as React from 'react';
 import {
   Animated,
   TextStyle,
+  ViewProperties,
   ViewStyle,
   StyleProp,
 } from 'react-native';
@@ -903,3 +904,17 @@ export function withNavigation<T = {}>(
 export function withNavigationFocus<T = {}>(
   Component: React.ComponentType<T & NavigationInjectedProps>
 ): React.ComponentType<T>;
+
+/**
+ * SafeAreaView Component
+ */
+export interface SafeAreaViewProps extends ViewProperties {
+  forceInset?: {
+    top?: 'always' | 'never'
+    bottom?: 'always' | 'never'
+    left?: 'always' | 'never'
+    right?: 'always' | 'never'
+  }
+}
+
+export const SafeAreaView: React.ComponentClass<SafeAreaViewProps>
